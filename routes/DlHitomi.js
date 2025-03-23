@@ -3,7 +3,7 @@ var JSZIP = require('jszip')
 var fs = require('fs')
 
 async function page(number, page){
-	var res = await fetch(`https://ltn.hitomi.la/galleries/${number}.js`);
+	var res = await fetch(`https://ltn.gold-usergeneratedcontent.net/galleries/${number}.js`);
 	var body = await res.text();
 	body = body.substr(18);
 	var galleryinfo;
@@ -44,7 +44,7 @@ async function page(number, page){
 }
 
 async function comic(number, send_res){
-	var res = await fetch(`https://ltn.hitomi.la/galleries/${number}.js`);
+	var res = await fetch(`https://ltn.gold-usergeneratedcontent.net/galleries/${number}.js`);
 	var body = await res.text();
 	body = body.substr(18);
 	var galleryinfo;
@@ -99,7 +99,7 @@ async function comic(number, send_res){
 
 async function Get_Address(hash){
 	var key = parseInt(hash.charAt(hash.length-1) + hash.charAt(hash.length-3) + hash.charAt(hash.length-2), 16)
-	var fres = await fetch(`https://ltn.hitomi.la/gg.js`);
+	var fres = await fetch(`https://ltn.gold-usergeneratedcontent.net/gg.js`);
 	var body = await fres.text();
 	var result = parseInt(body.substr(46, 1));
 	body = body.substr(61);
@@ -121,14 +121,14 @@ async function Get_Address(hash){
 	}
 
 	if(result == 0){
-		return `https://aa.hitomi.la/webp/${num}/${key}/${hash}.webp`
+		return `https://w1.gold-usergeneratedcontent.net/${num}/${key}/${hash}.webp`
 	}else{
-		return `https://ba.hitomi.la/webp/${num}/${key}/${hash}.webp`
+		return `https://w2.gold-usergeneratedcontent.net/${num}/${key}/${hash}.webp`
 	}
 }
 
 async function getInfo(number){
-	var res = await fetch(`https://ltn.hitomi.la/galleries/${number}.js`);
+	var res = await fetch(`https://ltn.gold-usergeneratedcontent.net/galleries/${number}.js`);
 	var body = await res.text();
 	body = body.substr(18);
 	var galleryinfo;
@@ -179,7 +179,7 @@ async function searchTag(tags){
 		for(var item of tags[category]){
 			if(!item)	return;
 			item = item.replaceAll("_", "%20");
-			var addr = "https://ltn.hitomi.la";
+			var addr = "https://ltn.gold-usergeneratedcontent.net";
 			if(is_n)	addr+='/n';
 			addr = language=='all' ? `${addr}/${sub_ca}/${gender}${item}-all.nozomi` : `${addr}/index-${language}.nozomi`
 			var searched = await fetch(addr);

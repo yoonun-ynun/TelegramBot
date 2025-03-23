@@ -25,7 +25,8 @@ var domain = process.env.DOMAIN;
 const options = {
 	key: fs.readFileSync('/sslkey/live/'+ domain +'/privkey.pem', 'utf8'),
 	cert: fs.readFileSync('/sslkey/live/'+ domain +'/cert.pem','utf8'),
-	ca: fs.readFileSync('/sslkey/live/'+ domain +'/chain.pem','utf8')};
+	ca: fs.readFileSync('/sslkey/live/'+ domain +'/chain.pem','utf8')
+};
 
 
 var server = https.createServer(options, app);
